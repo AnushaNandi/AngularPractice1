@@ -1,0 +1,37 @@
+<h1>Material UI</h1>
+<hr>
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<hr>
+<mat-form-field appearance="fill">
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate placeholder="Start date">
+    <input matEndDate placeholder="End date">
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+<hr>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+<hr>
+<h1>Reactive forms</h1>
+<form [formGroup]="loginForm" (ngSubmit)="getData(loginForm)">
+  <input type="text" placeholder="Enter username" formControlName="username">
+  <p>{{username?.status}}</p>
+  <p *ngIf="username?.invalid">Username should contain minumum of 3 characters</p>
+  <input type="password" placeholder="Enter password" formControlName="password">
+  <p>{{password?.status}}</p>
+  <button type="submit">Login</button>
+</form>
+<hr>
+<h3>Get posts</h3>
+<button (click)="getPostData()">Get Posts</button>
+
+
+
+
